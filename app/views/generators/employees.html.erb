@@ -1,0 +1,18 @@
+<h1>Listing Employees</h1>
+
+<table border=1>
+  <tr>
+    <th>Name</th>
+    <th>Action</th>
+    
+  </tr>
+
+<% @employees.each do |emp| %>
+  <tr>
+   <td><%= emp.name%></td>
+   <td><%= link_to 'View Reports', generators_employee_reports_path(emp.id) %></td>
+  </tr>
+<% end %>
+</table>
+
+

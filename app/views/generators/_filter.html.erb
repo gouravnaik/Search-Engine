@@ -1,0 +1,18 @@
+<h2>Filter</h2>
+<%= form_tag({:controller => 'generators', :action => 'filter_report',:value => @result}, {:method => 'get'}) do%>
+
+
+<div class="input-daterange" data-behaviour='datepicker' id="datepicker" data-date-format="yyyy/mm/dd">
+<input type="text" class="input-small" name="start" />
+<span class="add-on">to</span>
+<input type="text" class="input-small" name="end" />
+</div>
+<%= submit_tag("Filter") %>
+<%end%>
+
+<script type="text/javascript">
+$('.datepicker').datepicker({
+        dateFormat: "yyyy-mm-dd"});
+$('[data-behaviour~=datepicker]').datepicker({
+        dateFormat: "yyyy-mm-dd"});
+</script>

@@ -1,0 +1,77 @@
+<h1>Welcome</h1>
+
+<table border=1>
+  <tr>
+    <th>Work</th>
+    <th>Duration</th>
+    <th>Date</th>
+    <th>Action</th>
+    <th>Comments</th>
+    
+    
+  </tr>
+
+<% @result.each do |result| %>
+  <tr>
+   <td><%= result.my_report%></td>
+   <td><%= result.hour_spent%></td>
+   <td><%= result.created_at.to_date%></td>
+   
+    <td><%= link_to 'Comment', "#", :class => "abc"%>
+     
+     <div class= "temp" id="<%=result.id%>">
+     <input type="text" class="abc" name="comment" />
+     <input type="button" name="save" class="savecmt" />
+     </div>
+
+    </td>
+    <% result.comments.each do |c|%>
+   <td><%= c.report_comments%></td> 
+   <%end%>
+  </tr>
+<% end %>
+</table>
+
+
+<style>
+.temp{
+  display:none;
+}
+</style>
+
+<script>
+ $(document).ready(function(){
+ $('.abc').click(function(){ 
+ $(this).siblings('.temp').show();
+ });
+ $('.savecmt').click(function(){ 
+ var myid = $(this).parents('.temp').attr('id');
+ var myval = $(this).siblings('.abc').val();
+  $.ajax({
+        url: "/comments/report_comment",
+        type: 'post',
+        data: {myid:myid,myval:myval},
+        success : function(data){
+          alert("Comment Saved Successfully")
+          $('.temp').hide();
+          window.location.reload();
+        }
+                 });
+ 
+ });
+ });
+ </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

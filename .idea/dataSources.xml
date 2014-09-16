@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" hash="15762087">
+    <data-source source="LOCAL" name="Rails MYVC: development" uuid="00c4ae4f-1926-4c4f-bc27-c4ab409a5dec">
+      <driver-ref>mysql</driver-ref>
+      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://127.0.0.1:3306/mynewvc</jdbc-url>
+      <user-name>root</user-name>
+      <user-password>dfdbdfcbdfd0dfdadfc6dfc7df9bdf98df99</user-password>
+      <libraries />
+    </data-source>
+  </component>
+</project>
+

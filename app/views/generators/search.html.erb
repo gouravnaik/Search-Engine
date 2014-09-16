@@ -1,0 +1,47 @@
+<h1>Listing Reports</h1>
+
+<h2>Advance Search</h2>
+<%= form_tag({:controller => 'generators', :action => 'search'}, {:method => 'get'}) do%>
+
+
+<div class="input-daterange" data-behaviour='datepicker' id="datepicker" data-date-format="yyyy/mm/dd">
+<input type="text" class="input-small" name="start" />
+<span class="add-on">to</span>
+<input type="text" class="input-small" name="end" />
+</div>
+
+<%= submit_tag("Generate Report") %>
+<%end%>
+
+
+<%if @result != []%>
+<table border="1">
+  <tr>
+    <th>Report</th>
+    <th>Hours</th>
+    <th>Date</th>
+    <th>Actions</th>
+  </tr>
+
+<% @result.each do |report| %>
+  <tr>
+    <td><%=report.my_report%></td>
+    <td><%=report.hour_spent%></td>
+    <td><%=report.created_at.to_date%></td>
+    <td><%= link_to 'Show', report %>
+    <%= link_to 'Edit', edit_report_path(report) %>
+    <%= link_to 'Destroy', report, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+<%end%>
+
+
+<script type="text/javascript">
+$('.datepicker').datepicker({
+        dateFormat: "yyyy-mm-dd"});
+$('[data-behaviour~=datepicker]').datepicker({
+        dateFormat: "yyyy-mm-dd"});
+</script>

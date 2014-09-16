@@ -1,0 +1,27 @@
+<%= form_for(@report) do |f| %>
+  <% if @report.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@report.errors.count, "error") %> prohibited this report from being saved:</h2>
+
+      <ul>
+      <% @report.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+  <p>
+    Add Work <br />
+    <%= f.text_area :my_report, :rows => 5 %>
+  </p>
+  <p>
+    Hours <br />
+    <%= f.text_field :hour_spent, :placeholder=>"8.00" %>
+  </p>
+  <%= f.hidden_field :user_id, :value => @user%>
+  <%= f.hidden_field :leave, :value => 0%>
+    <%= f.submit %>
+  </div>
+<% end %>

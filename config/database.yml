@@ -1,0 +1,8 @@
+development:
+  adapter: mysql2
+  encoding: utf8
+  database: mynewvc
+  username: root
+  password: qazplm123
+  host: 127.0.0.1
+  port: 3306
