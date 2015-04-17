@@ -1,8 +1,16 @@
 <h1>Listing Employees</h1>
 
+<%= search_form_for @search, url: generators_employees_path do |f| %>
+   <div class="field">
+   	<%= f.label :name_cont, "Name Contains" %>
+   	<%= f.text_field :name_cont%>
+   </div>
+  <div class="actions"><%= f.submit "Search" %></div>
+<% end %>
+
 <table border=1>
   <tr>
-    <th>Name</th>
+    <th><%= sort_link @search, :name, "Name" %></th>
     <th>Action</th>
     
   </tr>
@@ -14,5 +22,3 @@
   </tr>
 <% end %>
 </table>
-
-

@@ -13,7 +13,9 @@ class GeneratorsController < ApplicationController
 	end
 
 	def employees
-	   @employees = User.where(:role_id => 2)
+		@search = User.ransack(params[:q])
+		@employees = @search.result
+	    #@employees = User.where(:role_id => 2)
 	end
 
 	def employee_reports

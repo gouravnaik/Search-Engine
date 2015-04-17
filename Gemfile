@@ -44,3 +44,5 @@ gem 'jquery-rails'
 gem 'bootstrap-datepicker-rails'
 
 gem 'cancancan', '~> 1.9'
+
+gem 'ransack'

@@ -3,9 +3,12 @@ class ReportsController < ApplicationController
   # GET /reports
   # GET /reports.json
   def index
+    @search = Report.ransack(params[:q])
     @user = current_user.id
     if User.find(@user).role_id
-      @reports = Report.all
+      @reports = @search.result
+      @search.build_condition if @search.sorts.empty?
+      @search.build_sort if @search.sorts.empty?
     else
     @reports = Report.where(:user_id => @user)
     respond_to do |format|

@@ -1,5 +1,19 @@
 <h1>Listing reports</h1>
 
+<%= search_form_for @search, url: search_reports_path, method: :post do |f| %>
+  <%= f.condition_fields do |c| %>
+    <%= render "condition_fields", f: c %>
+  <% end %>
+<p><%= link_to_add_fields "Add Conditions", f, :condition %></p>
+<div class="field">
+    Sort:
+    <%= f.sort_fields do |s| %>
+      <%= s.sort_select associations: [:user,:comments]%>
+    <% end %>
+</div>
+<div class="actions"><%= f.submit "Search" %></div>
+<% end %>
+
 <table border=1>
   <tr>
     <th>Name</th>
@@ -9,19 +23,19 @@
     <th>Actions</th>
   </tr>
 
-<% @reports.each do |report| %>
+  <% @reports.each do |report| %>
   <tr>
     <td><%= report.user.name %></td>
     <td><%= report.my_report %></td>
     <td><%= report.hour_spent %></td>
     <td><%= report.comments.map(&:report_comments).join(",") %></td>
     <td><%= link_to 'Show', report %>
-    <%= link_to 'Edit', edit_report_path(report) %>
-    <%= link_to 'Destroy', report, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
+      <%= link_to 'Edit', edit_report_path(report) %>
+      <%= link_to 'Destroy', report, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+    <% end %>
+  </table>
 
-<br />
+  <br />
 
-<%= link_to 'New Report', new_report_path %>
+  <%= link_to 'New Report', new_report_path %>

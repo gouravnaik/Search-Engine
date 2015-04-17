@@ -21,7 +21,9 @@ MYVC::Application.routes.draw do
 
   devise_for :users
 
-  resources :reports
+  resources :reports do
+    collection { post :search, to: 'reports#index'}
+  end
 
   resources :roles
 
