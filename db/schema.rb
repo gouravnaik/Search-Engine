@@ -29,9 +29,9 @@ ActiveRecord::Schema.define(:version => 20140915144955) do
     t.text     "my_report"
     t.string   "hour_spent"
     t.integer  "user_id"
-    t.boolean  "leave",      :default => true
-    t.datetime "created_at",                   :null => false
-    t.datetime "updated_at",                   :null => false
+    t.boolean  "leave",      :default => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
   end
 
   create_table "roles", :force => true do |t|

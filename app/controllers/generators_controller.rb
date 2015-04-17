@@ -8,8 +8,8 @@ class GeneratorsController < ApplicationController
 		if params[:end]
 		end_date=params[:end].to_date + 1
 	    end
-	    "start_date between ? and ?"
-		@result=Report.where('user_id = ? AND created_at between ? and ?', @user, start_date, end_date )	
+		@result=Generator.gen_report(@user,start_date,end_date)
+		
 	end
 
 	def employees

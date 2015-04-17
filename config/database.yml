@@ -1,8 +1,7 @@
 development:
-  adapter: mysql2
+  adapter: postgresql
   encoding: utf8
   database: mynewvc
-  username: root
-  password: qazplm123
-  host: 127.0.0.1
-  port: 3306
+  username: postgres
+  password: postgres
+  

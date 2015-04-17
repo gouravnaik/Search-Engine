@@ -68,8 +68,8 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.25.1)
     multi_json (1.10.1)
-    mysql2 (0.3.16)
     orm_adapter (0.5.0)
+    pg (0.17.1)
     polyglot (0.3.5)
     rack (1.4.5)
     rack-cache (1.2)
@@ -129,7 +129,7 @@ DEPENDENCIES
   debugger
   devise
   jquery-rails
-  mysql2
+  pg (~> 0.11)
   rails (= 3.2.19)
   sass-rails (~> 3.2.3)
   uglifier (>= 1.0.3)

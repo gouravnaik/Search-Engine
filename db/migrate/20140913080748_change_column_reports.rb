@@ -1,6 +1,6 @@
 class ChangeColumnReports < ActiveRecord::Migration
   def up
-  	change_column :reports, :leave, :boolean, :default => 1
+  	change_column :reports, :leave, :boolean
   end
 
   def down

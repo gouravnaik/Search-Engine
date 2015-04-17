@@ -4,11 +4,15 @@ class ReportsController < ApplicationController
   # GET /reports.json
   def index
     @user = current_user.id
+    if User.find(@user).role_id
+      @reports = Report.all
+    else
     @reports = Report.where(:user_id => @user)
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @reports }
     end
+  end
   end
 
   # GET /reports/1
