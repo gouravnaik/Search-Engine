@@ -1,4 +1,7 @@
 MYVC::Application.routes.draw do
+  resources :blogs
+
+
   resources :comments
 
 

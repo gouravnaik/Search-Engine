@@ -1,0 +1,10 @@
+<h1>Listing blogs</h1>
+
+<%  @blogs.each do |c| %>
+<b>Title: </b><%= c.title %> <br />
+<b>Owner: </b><%= c.user.name %> <br />
+<b>Content:</b> <%= c.content %>  <br />
+<pre></pre>
+<% end %>
+
+<%= link_to 'New Blog', new_blog_path %>
