@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   # attr_accessible :title, :body
   belongs_to :role
   has_many :reports
+  has_many :blogs
 
   validates :role_id,  :presence=>  {:message => "Select the Role"}
 end
