@@ -1,5 +1,13 @@
 <h1>Listing blogs</h1>
 
+<%= form_tag blogs_path, method: :get do %>
+  <p>
+    <%= text_field_tag :query, params[:query] %>
+    <%= submit_tag "Search", name: nil %>
+  </p>
+<% end %>
+
+
 <%  @blogs.each do |c| %>
 <b>Title: </b><%= c.title %> <br />
 <b>Owner: </b><%= c.user.name %> <br />

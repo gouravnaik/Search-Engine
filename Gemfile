@@ -44,3 +44,8 @@ gem 'jquery-rails'
 gem 'bootstrap-datepicker-rails'
 
 gem 'cancancan', '~> 1.9'
+
+gem 'elasticsearch-model'
+gem 'elasticsearch-rails'
+
+gem 'tire'
