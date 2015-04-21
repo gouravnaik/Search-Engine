@@ -2,7 +2,16 @@ class BlogsController < ApplicationController
   # GET /blogs
   # GET /blogs.json
   def index
-    @blogs = Blog.all
+    @search = Blog.search do
+      fulltext params[:search]
+      with(:created_at).less_than(Time.zone.now)
+      facet(:publish_month)
+      with(:publish_month, params[:month]) if params[:month].present?
+      facet(:user_id)
+      with(:user_id, params[:user_id]) if params[:user_id].present?
+    end
+
+    @blogs = @search.results
 
     respond_to do |format|
       format.html # index.html.erb

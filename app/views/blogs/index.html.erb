@@ -1,8 +1,46 @@
 <h1>Listing blogs</h1>
 
+<%= form_tag blogs_path, :method => :get do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %>
+
+<div id="facets">
+  <h3>Published</h3>
+  <ul>
+    <% for row in @search.facet(:publish_month).rows %>
+      <li>
+        <% if params[:month].blank? %>
+          <%= link_to row.value, :month => row.value %> (<%= row.count %>)
+        <% else %>
+          <strong><%= row.value %></strong> (<%= link_to "remove", :month => nil %>)
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
+<div id="facets">
+  <h3>Users</h3>
+  <ul>
+    <% for row in @search.facet(:user_id).rows %>
+      <li>
+        <% if params[:user_id].blank? %>
+          <%= link_to User.find(row.value).name, :user_id => row.value %> (<%= row.count %>)
+        <% else %>
+          <strong><%= row.value %></strong> (<%= link_to "remove", :user_id => nil %>)
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
 <%  @blogs.each do |c| %>
 <b>Title: </b><%= c.title %> <br />
 <b>Owner: </b><%= c.user.name %> <br />
+<b>Published: </b><%= c.created_at.strftime(" %B %Y") %> <br />
 <b>Content:</b> <%= c.content %>  <br />
 <pre></pre>
 <% end %>

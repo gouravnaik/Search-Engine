@@ -44,3 +44,7 @@ gem 'jquery-rails'
 gem 'bootstrap-datepicker-rails'
 
 gem 'cancancan', '~> 1.9'
+
+gem 'sunspot_rails'
+
+gem 'sunspot_solr'
