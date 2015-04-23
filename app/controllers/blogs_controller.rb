@@ -2,11 +2,7 @@ class BlogsController < ApplicationController
   # GET /blogs
   # GET /blogs.json
   def index
-    if params[:query].present?
-      @blogs = Blog.search(params[:query])
-    else
-      @blogs = Blog.all
-    end
+    @blogs = Blog.search(params)
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @blogs }

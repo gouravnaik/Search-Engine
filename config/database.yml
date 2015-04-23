@@ -1,7 +1,8 @@
 development:
   adapter: postgresql
   encoding: utf8
-  database: mynewvc
+  #database: mynewvc
+  database: elastic_db
   username: postgres
   password: postgres
   

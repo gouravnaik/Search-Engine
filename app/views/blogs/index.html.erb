@@ -2,18 +2,38 @@
 
 <%= form_tag blogs_path, method: :get do %>
   <p>
-    <%= text_field_tag :query, params[:query] %>
+    <%= text_field_tag :query, params[:query], load: true %>
     <%= submit_tag "Search", name: nil %>
   </p>
 <% end %>
 
+<div id="facets">
+  <h3>Owners</h3>
+  <ul>
+    <% @blogs.facets['owners']['terms'].each do |facet| %>
+      <li>
+        <%= link_to_unless_current User.find(facet['term']).name, params.merge(user_id: facet['term']) %>
+        <% if params[:user_id] == facet['term'].to_s %>
+          (<%= link_to "remove", user_id: nil %>)
+        <% else %>
+          (<%= facet['count'] %>)
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
 
 <%  @blogs.each do |c| %>
 <b>Title: </b><%= c.title %> <br />
-<b>Owner: </b><%= c.user.name %> <br />
-<b>Published: </b><%= c.created_at.strftime(" %B %Y") %> <br />
+<!-- <b>Owner: </b><%#= c.user.name %> <br />
+<b>Published: </b><%#= c.created_at.strftime(" %B %Y") %> <br /> -->
+<b>Owner: </b><%= c.user_name %> <br />
+<b>Published: </b><%= c.created_at.to_time.strftime(" %B %Y") %> <br />
 <b>Content:</b> <%= c.content %>  <br />
 <pre></pre>
 <% end %>
 
 <%= link_to 'New Blog', new_blog_path %>
+
+<%= will_paginate @blogs %>

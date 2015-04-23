@@ -49,3 +49,4 @@ gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
 
 gem 'tire'
+gem 'will_paginate'
