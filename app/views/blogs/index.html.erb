@@ -30,7 +30,7 @@
         <% if params[:user_id].blank? %>
           <%= link_to User.find(row.value).name, :user_id => row.value %> (<%= row.count %>)
         <% else %>
-          <strong><%= row.value %></strong> (<%= link_to "remove", :user_id => nil %>)
+          <strong><%= User.find(row.value).name %></strong> (<%= link_to "remove", :user_id => nil %>)
         <% end %>
       </li>
     <% end %>

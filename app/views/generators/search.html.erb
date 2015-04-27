@@ -5,7 +5,8 @@
 
 
 <div class="input-daterange" data-behaviour='datepicker' id="datepicker" data-date-format="yyyy/mm/dd">
-<input type="text" class="input-small" name="start" />
+<input type="text" class="input-small" id="dp1" name="start" readonly='true' />
+
 <span class="add-on">to</span>
 <input type="text" class="input-small" name="end" />
 </div>
@@ -40,8 +41,17 @@
 
 
 <script type="text/javascript">
+
+var date = new Date();
+date.setDate(date.getDate()-1);
+
+$('#dp1').datepicker({ 
+    startDate: date
+});
+
 $('.datepicker').datepicker({
         dateFormat: "yyyy-mm-dd"});
 $('[data-behaviour~=datepicker]').datepicker({
         dateFormat: "yyyy-mm-dd"});
+
 </script>
