@@ -5,17 +5,17 @@
 
  Clone the project and checkout the branch to perform above search
 
- Elastic Search:
+ Elastic Search:  (git checkout Elastic-Search )
      * Install Elastic Search in your system
      * sudo service elasticsearch start
      * rake environment tire:import CLASS=Blog FORCE=true (Reindexing)
      Perform the Search in Blog
 
- SunSpot Search:
+ SunSpot Search:  (git checkout SunSpot-Search )
      * rails generate sunspot_rails:install (Gives .yml)
      * rake sunspot:solr:start  To start the search engine
      Perform the Search in Blog
 
- Ransack Search:
+ Ransack Search:   (git checkout Ransack-Search )
      * Perform Simple Search in List Employee
      * Perform Advance search in All Reports
