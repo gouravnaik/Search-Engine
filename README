@@ -1,0 +1,21 @@
+ Demo App is created for 3 type of Search
+   * Elastic Search
+   * Ransack Search
+   * SunSpot Search
+
+ Clone the project and checkout the branch to perform above search
+
+ Elastic Search:
+     * Install Elastic Search in your system
+     * sudo service elasticsearch start
+     * rake environment tire:import CLASS=Blog FORCE=true (Reindexing)
+     Perform the Search in Blog
+
+ SunSpot Search:
+     * rails generate sunspot_rails:install (Gives .yml)
+     * rake sunspot:solr:start  To start the search engine
+     Perform the Search in Blog
+
+ Ransack Search:
+     * Perform Simple Search in List Employee
+     * Perform Advance search in All Reports
