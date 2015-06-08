@@ -13,3 +13,25 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+.bundle
+db/*.sqlite3
+log/*.log
+tmp/
+.sass-cache/
+.svn
+config/database.yml
+svn
+database.yml
+public/uploads
+public/reports
+.rvmrc
+.idea
+config/carmatec.deploy.rb
+nbproject/
+public/system/
+
+config/initializers/upload_s3.rb
+
+dbbackups
+coverage/
+
