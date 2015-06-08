@@ -19,3 +19,6 @@
  Ransack Search:   (git checkout Ransack-Search )
      * Perform Simple Search in List Employee
      * Perform Advance search in All Reports
+     
+ For Detailed information
+ http://slides.com/gouravnaik/deck
