@@ -21,7 +21,7 @@ class Blog < ActiveRecord::Base
        #filter :term, user_id: params[:user_id] if params[:user_id].present?
        query do
          boolean do
-           must { string params[:query] } if params[:query].present?
+           must { string "*#{params[:query]}*" } if params[:query].present?
            must { range :created_at, lte: Time.zone.now - 700000}
            must { term :user_id, params[:user_id] } if params[:user_id].present?
          end
